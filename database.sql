@@ -311,11 +311,12 @@ inner join buying_process
 on librarians.librarian_id = buying_process.buying_id
 order by buying_process.buying_id;
 
-/* Another left Join */
-
-select buying_process.buying_date, librarians.Name 
-from buying_process left join librarians 
-ON buying_process.librarian_id = librarians.librarian_id;
+/*full join*/
+SELECT * FROM librarians 
+LEFT JOIN buying_process ON librarians.librarian_id = buying_process.buyer_id
+UNION
+SELECT * FROM librarians
+RIGHT JOIN buying_process ON librarians.librarian_id = buying_process.buyer_id;
 
 /*
 	8.Update Statments
